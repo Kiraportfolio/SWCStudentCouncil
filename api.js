@@ -79,15 +79,8 @@ async function apiPost(action, body = {}) {
  */
 function navigateTo(page) {
   if (page === 'index') {
-    // Try going to root, fallback to index.html
-    const loc = window.location;
-    if (loc.protocol === 'file:') {
-      window.location.href = 'index.html';
-    } else {
-      // GitHub Pages — go to root or the base path
-      const basePath = window.APP_BASE_PATH || '/';
-      window.location.href = basePath;
-    }
+    // Redirect to index.html for consistent behavior across all hosting methods
+    window.location.href = 'index.html';
   } else {
     window.location.href = page + '.html';
   }
