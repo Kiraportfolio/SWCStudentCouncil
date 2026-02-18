@@ -3,7 +3,7 @@
 // Communicates with Google Apps Script REST API
 // ==========================================
 
-// ===== CONFIGURATION =====
+// ===== CONFIGURATION (Updated: 2026-02-18) =====
 // Set this to your deployed GAS Web App URL
 // After deploying GAS, replace this value with the actual URL
 const API_BASE = (() => {
