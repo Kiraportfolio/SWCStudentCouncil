@@ -13,11 +13,11 @@ const API_BASE = (() => {
   }
   // Check for meta tag: <meta name="gas-api-url" content="https://...">
   const meta = document.querySelector('meta[name="gas-api-url"]');
-  if (meta && meta.content && meta.content.indexOf('YOUR_DEPLOYMENT_ID') === -1) {
+  if (meta && meta.content && meta.content.indexOf('AKfycbxHIGrdTREFq3d-0Yq3Lz9xMrI9chG7AOL4zkEv0ss9MwgAFoAbJ8hlqJAZHdvaCARk') === -1) {
     return meta.content;
   }
   // Default placeholder — must be replaced before deploying
-  return 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+  return 'https://script.google.com/macros/s/AKfycbxHIGrdTREFq3d-0Yq3Lz9xMrI9chG7AOL4zkEv0ss9MwgAFoAbJ8hlqJAZHdvaCARk/exec';
 })();
 
 // ===== API FUNCTIONS =====
@@ -92,7 +92,7 @@ function navigateTo(page) {
  * Check if the API is properly configured
  */
 function isApiConfigured() {
-  return API_BASE && API_BASE.indexOf('YOUR_DEPLOYMENT_ID') === -1;
+  return API_BASE && API_BASE.indexOf('AKfycbxHIGrdTREFq3d-0Yq3Lz9xMrI9chG7AOL4zkEv0ss9MwgAFoAbJ8hlqJAZHdvaCARk') === -1;
 }
 
 /**
