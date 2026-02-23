@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สภานักเรียน - โรงเรียนศรีวิชัยวิทยา</title>
+    <link rel="icon" href="images/council.png" type="image/jpeg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/council.png" alt="logo" width="40" height="40">
+                <div class="logo-text">สภานักเรียน</div>
+            </a>
+
+            <!-- Hamburger Menu Button -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-links">
+                <div class="mobile-menu-header">
+                    <div class="mobile-menu-logo">
+                        <img src="images/Logo.png" alt="logo">
+                        Sriwichaiwittaya
+                    </div>
+                    <div class="mobile-menu-close" onclick="toggleMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+
+                <a href="index.html" class="nav-link">
+                    <i class="fa-solid fa-house"></i>
+                    <div class="nav-text"><span>หน้าแรก</span></div>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fa-solid fa-users"></i>
+                    <div class="nav-text"><span>รู้จักสภานักเรียน</span></div>
+                </a>
+                <div class="nav-item-dropdown">
+                    <a href="#" class="nav-link" onclick="event.preventDefault();">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <div class="nav-text"><span>เกี่ยวกับสภานักเรียน <i class="fa-solid fa-chevron-down"
+                                    style="font-size: 0.8em; margin-left: 4px;"></i></span></div>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="personnel.html" class="dropdown-item">บุคลากรที่สำคัญ</a>
+                        <a href="member.html" class="dropdown-item">2569 คณะกรรมการสภานักเรียน</a>
+                        <a href="directory.html" class="dropdown-item">ทำเนียบสภานักเรียน</a>
+                    </div>
+                </div>
+                <a href="policies.html" class="nav-link">
+                    <i class="fa-solid fa-book-open"></i>
+                    <div class="nav-text"><span>โครงการ</span></div>
+                </a>
+                <a href="news.html" class="nav-link">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <div class="nav-text"><span>ข่าวสาร</span></div>
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fa-solid fa-phone"></i>
+                    <div class="nav-text"><span>ติดต่อ</span></div>
+                </a>
+
+                <div class="nav-btn-wrapper">
+                    <button onclick="adminLogin();" class="btn btn-techno nav-link"
+                        style="background: none; border: none; cursor: pointer; width: 100%; text-align: left; padding: 10px 15px;">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <div class="nav-text"><span>จัดการระบบ</span></div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-tagline">#รับฟังทุกเสียง #สร้างสรรค์ทุกโอกาส</div>
+            <h1 class="hero-title">
+                เพราะโรงเรียนที่ดี<br>
+                เริ่มจากการ <span style="color: var(--color-primary-red);">กล้าลอง</span>
+            </h1>
+            <div class="hero-image-wrapper">
+                <img src="images/Us.png" alt="กล้านำ ทำจริง - Sriwichaiwittaya" class="hero-subtitle-image">
+            </div>
+
+            <div class="hero-actions">
+                <a href="#student-voice" class="btn btn-primary"
+                    style="background: linear-gradient(135deg, var(--color-primary-gold), #DAA520); color: black;">
+                    <i class="fa-solid fa-bullhorn"></i> ร้องเรียน/เสนอแนะ
+                </a>
+                <a href="#quick-links" class="btn btn-secondary">
+                    <i class="fa-solid fa-calendar-days"></i> ปฏิทินกิจกรรม
+                </a>
+            </div>
+        </div>
+
+        <!-- Animated Background Elements -->
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+    </section>
+
+    <!-- Latest Updates Section (News & Events) -->
+    <section class="section updates-section bg-light" id="updates">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">ความเคลื่อนไหว<span class="highlight-text">ล่าสุด</span></h2>
+                <p class="section-subtitle">ติดตามข่าวสารและกิจกรรมที่น่าสนใจจากสภานักเรียน</p>
+            </div>
+
+            <div class="updates-grid">
+                <!-- News Column -->
+                <div class="news-column">
+                    <h3 class="column-title"><i class="fa-solid fa-newspaper text-gold"></i> ข่าวประชาสัมพันธ์</h3>
+                    <div class="news-list">
+                        <div class="news-card">
+                            <div class="news-date">15 ก.พ.</div>
+                            <div class="news-content">
+                                <h4>ประกาศรับสมัครคณะกรรมการชุดใหม่</h4>
+                                <p>เปิดรับสมัครนักเรียนเพื่อร่วมเป็นส่วนหนึ่งของสภานักเรียนประจำปีการศึกษา 2569...</p>
+                                <a href="news.html" class="read-more">อ่านต่อ <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="news-card">
+                            <div class="news-date">10 ก.พ.</div>
+                            <div class="news-content">
+                                <h4>สรุปผลการแข่งขันกีฬาภายใน</h4>
+                                <p>ภาพบรรยากาศและสรุปเหรียญรางวัลการแข่งขันกีฬาสีประจำปีที่ผ่านมา...</p>
+                                <a href="news.html" class="read-more">อ่านต่อ <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events Column -->
+                <div class="events-column">
+                    <h3 class="column-title"><i class="fa-solid fa-calendar-check text-green"></i> กิจกรรมเร็วๆ นี้</h3>
+                    <div class="event-featured">
+                        <div class="event-poster-placeholder">
+                            <i class="fa-solid fa-music"></i>
+                            <span>SWC Music Contest 2026</span>
+                        </div>
+                        <div class="event-details">
+                            <h4>ประกวดวงดนตรีสากล</h4>
+                            <p><i class="fa-regular fa-clock"></i> 28 กุมภาพันธ์ 2569 | 15:30 น.</p>
+                            <p><i class="fa-solid fa-location-dot"></i> หอประชุมใหญ่</p>
+
+                            <!-- Countdown Mini -->
+                            <div class="event-countdown">
+                                <span class="cd-box"><strong id="cd-days">08</strong><small>วัน</small></span>:
+                                <span class="cd-box"><strong id="cd-hours">12</strong><small>ชม.</small></span>:
+                                <span class="cd-box"><strong id="cd-mins">45</strong><small>นาที</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Voice Section -->
+    <section class="section student-voice-section" id="student-voice">
+        <div class="container">
+            <div class="voice-wrapper">
+                <div class="voice-content">
+                    <h2 class="section-title text-white">ทุกเสียง<span class="highlight-gold">มีความหมาย</span></h2>
+                    <p class="text-white-80">มีปัญหา เสนอแนะ หรืออยากให้สภานักเรียนช่วยอะไร? บอกเราได้เลยที่นี่
+                        ทุกข้อความจะถูกนำไปพิจารณาอย่างจริงจัง</p>
+
+                    <div class="tracking-status mt-4">
+                        <h4>สถานะการดำเนินงานปัจจุบัน</h4>
+                        <div class="status-stats">
+                            <div class="stat-item">
+                                <span class="stat-num text-gold">42</span>
+                                <span class="stat-label">เรื่องที่รับแจัง</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-num text-white">35</span>
+                                <span class="stat-label">แก้ไขแล้ว</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-num text-white">7</span>
+                                <span class="stat-label">กำลังดำเนินการ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="voice-form-wrapper">
+                    <form class="voice-form" action="#" method="POST"
+                        onsubmit="event.preventDefault(); alert('ขอบคุณสำหรับความคิดเห็น! ระบบกำลังบันทึกข้อมูล');">
+                        <h3>ส่งข้อเสนอแนะ</h3>
+                        <div class="form-group">
+                            <label>หัวข้อเรือง</label>
+                            <input type="text" placeholder="เช่น ขอให้ซ่อมพัดลมโรงอาหาร" required>
+                        </div>
+                        <div class="form-group">
+                            <label>หมวดหมู่</label>
+                            <select required>
+                                <option value="" disabled selected>เลือกหมวดหมู่...</option>
+                                <option value="facility">อาคารสถานที่/สิ่งอำนวยความสะดวก</option>
+                                <option value="academic">วิชาการ/การเรียนการสอน</option>
+                                <option value="activity">กิจกรรม/ชมรม</option>
+                                <option value="other">อื่นๆ</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>รายละเอียด</label>
+                            <textarea rows="4" placeholder="อธิบายปัญหาหรือข้อเสนอแนะของคุณ..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">ส่งข้อความ <i
+                                class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="section quick-links-section bg-light" id="quick-links">
+        <div class="container">
+            <div class="section-header text-center mb-4">
+                <h2 class="section-title">เข้าถึง<span class="highlight-text">รวดเร็ว</span></h2>
+            </div>
+
+            <div class="quick-links-grid">
+                <a href="#" class="quick-link-card">
+                    <div class="icon-wrapper bg-green-light">
+                        <i class="fa-solid fa-calendar-alt text-green"></i>
+                    </div>
+                    <h4>ปฏิทินวิชาการ</h4>
+                    <p>ดาวน์โหลดปฏิทินปีการศึกษา</p>
+                </a>
+
+                <a href="#" class="quick-link-card">
+                    <div class="icon-wrapper bg-gold-light">
+                        <i class="fa-solid fa-utensils text-gold"></i>
+                    </div>
+                    <h4>เมนูอาหารกลางวัน</h4>
+                    <p>ดูรายการอาหารสัปดาห์นี้</p>
+                </a>
+
+                <a href="#" class="quick-link-card">
+                    <div class="icon-wrapper bg-blue-light">
+                        <i class="fa-solid fa-shirt text-blue"></i>
+                    </div>
+                    <h4>ระเบียบการแต่งกาย</h4>
+                    <p>คู่มือการแต่งกายที่ถูกต้อง</p>
+                </a>
+
+                <a href="#" class="quick-link-card">
+                    <div class="icon-wrapper bg-red-light">
+                        <i class="fa-solid fa-bullhorn text-red"></i>
+                    </div>
+                    <h4>แจ้งซ่อม/ปัญหา</h4>
+                    <p>ระบบแจ้งซ่อมออนไลน์</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>สภานักเรียน</h3>
+                    <p>โรงเรียนศรีวิชัยวิทยา <br>
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>เมนูลัด</h4>
+                    <ul>
+                        <li><a href="about.html">รู้จักสภานักเรียน</a></li>
+                        <li><a href="policies.html">นโยบายสภาฯ</a></li>
+                        <li><a href="candidates.html">คณะกรรมการ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>ติดต่อเรา</h4>
+                    <ul>
+                        <li><a href="https://www.facebook.com/swcstudentscouncil"><i class="fa-brands fa-facebook"></i>
+                                สภานักเรียน โรงเรียนศรีวิชัยวิทยา</a></li>
+                        <li><a href="https://www.instagram.com/sapaswc.68/"><i class="fa-brands fa-instagram"></i>
+                                คณะกรรมการสภานักเรียนโรงเรียนศรีวิชัยวิทยา</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>เว็บไซต์ทางการสภานักเรียนโรงเรียนศรีวิชัยวิทยา</p>
+                <p>&copy; 2026 Sriwichaiwittaya School. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container" id="quickContactFab">
+        <div class="fab-menu">
+            <h4><i class="fa-solid fa-bolt"></i> ติดต่อด่วน</h4>
+            <p>มีคำถามหรือข้อสงสัย? พิมพ์คุยกับ AI หรือส่งข้อความหาเราได้ทันที</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <button onclick="adminLogin();" class="btn btn-techno"
+                    style="border: none; cursor: pointer; width: 100%; text-align: left;">
+                    <i class="fa-solid fa-user-shield"></i> จัดการระบบ
+                </button>
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fa-solid fa-paper-plane"></i> ส่งข้อความถึงเรา
+                </a>
+                <a href="trash-report.html" class="btn btn-success">
+                    <i class="fa-solid fa-trash-can"></i> รายงานจุดขยะ
+                </a>
+            </div>
+        </div>
+        <button class="fab-button">
+            <i class="fa-solid fa-message"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ผลคะแนนสด | ระบบนับคะแนนการเลือกตั้งสภานักเรียน</title>
 
+    <link rel="icon" type="image/png" href="images/council.png">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- API Client -->
-    <meta name="gas-api-url" content="https://script.google.com/macros/s/AKfycbxHIGrdTREFq3d-0Yq3Lz9xMrI9chG7AOL4zkEv0ss9MwgAFoAbJ8hlqJAZHdvaCARk/exec">
+    <meta name="gas-api-url"
+        content="https://script.google.com/macros/s/AKfycbw6zY6L7Ki0eu8f8c0VMPINwI0MZHsEvgQHf3_DcPd1eI2xTvD0HNc05M1V-qf5kCvX/exec">
     <script src="api.js?v=1.0.1"></script>
 
     <style>
@@ -553,16 +555,44 @@
             border-width: 4px;
         }
 
+        .party-name-combo {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 14px;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        }
+
+        .party-number-flag {
+            background: var(--party-color, #e74c3c);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 900;
+            padding: 4px 16px 4px 20px;
+            transform: skewX(-15deg);
+            margin-right: -10px;
+            z-index: 2;
+            position: relative;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .party-number-flag span {
+            transform: skewX(15deg);
+            display: block;
+        }
+
         /* ===== PARTY NAME TAG ===== */
         .party-name-tag {
             display: inline-flex;
             align-items: center;
             gap: 6px;
             background: rgba(255, 255, 255, 0.95);
-            padding: 4px 14px 4px 6px;
-            border-radius: 20px;
-            margin-bottom: 14px;
-            transform: skewX(-4deg);
+            padding: 6px 16px 6px 20px;
+            border-radius: 0 4px 4px 0;
+            transform: skewX(-15deg);
+            z-index: 1;
         }
 
         .party-name-tag .tag-logo {
@@ -571,6 +601,7 @@
             border-radius: 50%;
             overflow: hidden;
             flex-shrink: 0;
+            transform: skewX(15deg);
         }
 
         .party-name-tag .tag-logo img {
@@ -580,14 +611,14 @@
         }
 
         .party-name-tag .tag-name {
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 0.9rem;
+            font-weight: 800;
             color: #1a1a2e;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 120px;
-            transform: skewX(4deg);
+            max-width: 140px;
+            transform: skewX(15deg);
         }
 
         /* ===== VOTE SCORE ===== */
@@ -1119,6 +1150,11 @@
                 <a href="#" onclick="navigateTo('ranking'); return false;" class="nav-link active">
                     <i class="fa-solid fa-tv"></i> ผลคะแนนสด
                 </a>
+                <div class="nav-divider"></div>
+                <button onclick="adminLogin(); return false;" class="nav-link"
+                    style="color: var(--color-primary-yellow);">
+                    <i class="fa-solid fa-user-shield"></i> Admin
+                </button>
             </div>
 
             <!-- Mobile Hamburger -->
@@ -1141,8 +1177,9 @@
         <a href="#" onclick="navigateTo('ranking'); toggleMobileMenu(); return false;" class="mobile-nav-link active">
             <i class="fa-solid fa-tv"></i> ผลคะแนนสด
         </a>
-        <a href="#" onclick="navigateTo('counting'); toggleMobileMenu(); return false;" class="mobile-nav-link">
-            <i class="fa-solid fa-chart-simple"></i> ดูแลระบบ
+        <a href="#" onclick="adminLogin(); toggleMobileMenu(); return false;" class="mobile-nav-link"
+            style="margin-top: auto; border-color: rgba(233, 196, 106, 0.3); background: rgba(233, 196, 106, 0.05); color: var(--color-primary-yellow);">
+            <i class="fa-solid fa-user-shield"></i> จัดการระบบ (Admin)
         </a>
     </div>
 
@@ -1208,11 +1245,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-disclaimer" id="footerText">
-            <i class="fa-solid fa-shield-check"></i>
-            ระบบนี้ใช้เพื่อการแสดงผลคะแนนเลือกตั้งสภานักเรียน โรงเรียนศรีวิชัยวิทยา
+            <i class="fa-solid fa-check-to-slot"></i>
+            เว็บไซต์นี้เป็นเว็บไซต์สำหรับการลงคะแนนเสียงในการเลือกตั้งสภานักเรียน
         </div>
         <div class="footer-dev" id="footerDev">
-            พัฒนาโดย นายธีรเดช เดชสูงเนิน
+            พัฒนาและดูแลระบบโดย สภานักเรียนโรงเรียนศรีวิชัยวิทยา
         </div>
     </footer>
 
@@ -1337,9 +1374,12 @@
                     '<div class="card-inner">' +
                     '<div class="rank-badge"><span>' + rank + '</span></div>' +
                     '<div class="party-logo">' + logoHtml + '</div>' +
+                    '<div class="party-name-combo">' +
+                    '<div class="party-number-flag" style="--party-color: ' + p.color + '"><span>' + p.id + '</span></div>' +
                     '<div class="party-name-tag">' +
                     '<div class="tag-logo">' + tagLogoHtml + '</div>' +
                     '<div class="tag-name">' + p.name + '</div>' +
+                    '</div>' +
                     '</div>' +
                     '<div class="vote-score" data-target="' + p.votes + '" data-key="party' + p.id + '">0</div>' +
                     '<div class="vote-label">คะแนน</div>' +
@@ -1381,7 +1421,7 @@
                 html += '<div class="other-party-card">' +
                     '<div class="op-logo">' + logoHtml + '</div>' +
                     '<div class="op-info">' +
-                    '<div class="op-name">' + p.name + '</div>' +
+                    '<div class="op-name"><span style="display:inline-block; background:' + p.color + '; color:white; padding:2px 8px; border-radius:4px; margin-right:6px; font-weight:bold;">' + p.id + '</span> ' + p.name + '</div>' +
                     '<div class="op-rank">อันดับ ' + rank + '</div>' +
                     '</div>' +
                     '<div class="op-score">' + formatNumber(p.votes) + '</div>' +
@@ -1475,6 +1515,34 @@
             // Auto-refresh every 3 seconds
             setInterval(loadData, 3000);
         };
+
+        // ===== ADMIN LOGIN =====
+        function adminLogin() {
+            var pw = prompt('กรุณากรอกรหัสผ่านผู้ดูแลระบบ:');
+            if (!pw) return;
+
+            if (isApiConfigured()) {
+                apiPost('verifyPassword', { password: pw, name: 'ครูที่ปรึกษา' }).then(function (res) {
+                    if (res.success) {
+                        localStorage.setItem('userRole', res.role);
+                        localStorage.setItem('userName', 'ครูที่ปรึกษา');
+                        navigateTo('admin');
+                    } else {
+                        alert('รหัสผ่านไม่ถูกต้อง');
+                    }
+                }).catch(function (err) {
+                    alert('เกิดข้อผิดพลาด: ' + err.message);
+                });
+            } else {
+                if (pw === 'admin2569') {
+                    localStorage.setItem('userRole', 'advisor');
+                    localStorage.setItem('userName', 'ครูที่ปรึกษา');
+                    navigateTo('admin');
+                } else {
+                    alert('รหัสผ่านไม่ถูกต้อง');
+                }
+            }
+        }
     </script>
 </body>
 

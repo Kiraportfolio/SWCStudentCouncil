@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แผงควบคุม | ระบบนับคะแนนการเลือกตั้งสภานักเรียน</title>
+    <link rel="icon" type="image/png" href="images/council.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
@@ -13,7 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <!-- API Client -->
-    <meta name="gas-api-url" content="https://script.google.com/macros/s/AKfycbxHIGrdTREFq3d-0Yq3Lz9xMrI9chG7AOL4zkEv0ss9MwgAFoAbJ8hlqJAZHdvaCARk/exec">
+    <meta name="gas-api-url"
+        content="https://script.google.com/macros/s/AKfycbw6zY6L7Ki0eu8f8c0VMPINwI0MZHsEvgQHf3_DcPd1eI2xTvD0HNc05M1V-qf5kCvX/exec">
     <script src="api.js?v=1.0.1"></script>
     <style>
         :root {
@@ -1096,90 +1098,14 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-sub"><i class="fa-solid fa-check-to-slot"></i> <span
-                id="footerText">ระบบนับคะแนนเลือกตั้งสภานักเรียน</span></div>
-        <div class="footer-dev" id="footerDev">พัฒนาโดย นายธีรเดช เดชสูงเนิน</div>
+        <div class="footer-disclaimer" id="footerText">
+            <i class="fa-solid fa-check-to-slot"></i>
+            เว็บไซต์นี้เป็นเว็บไซต์สำหรับการลงคะแนนเสียงในการเลือกตั้งสภานักเรียน
+        </div>
+        <div class="footer-dev" id="footerDev">
+            พัฒนาและดูแลระบบโดย สภานักเรียนโรงเรียนศรีวิชัยวิทยา
+        </div>
     </footer>
-
-    <!-- Party Modal (Enhanced) -->
-    <div class="modal-overlay" id="partyModal">
-        <div class="modal" style="max-width:520px">
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-                <div id="pmIconPreview"
-                    style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#E63946,#c0392b);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                    <i class="fa-solid fa-landmark" style="color:#fff;font-size:1.2rem"></i>
-                </div>
-                <div>
-                    <h3 id="partyModalTitle" style="margin:0;font-size:1.15rem">เพิ่มพรรคใหม่</h3>
-                    <p style="margin:2px 0 0;font-size:.8rem;color:var(--c-muted)">กรอกข้อมูลพรรคด้านล่าง</p>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label><i class="fa-solid fa-pen"></i> ชื่อพรรค <span style="color:#e74c3c">*</span></label>
-                <input id="pmName" placeholder="เช่น พรรค FUTURE FORWARD">
-            </div>
-            <div class="form-group">
-                <label><i class="fa-solid fa-user-tie"></i> หัวหน้าพรรค</label>
-                <input id="pmLeader" placeholder="ชื่อ-นามสกุล หัวหน้าพรรค (ถ้ามี)">
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-                <div class="form-group">
-                    <label><i class="fa-solid fa-palette"></i> สีประจำพรรค</label>
-                    <div style="display:flex;align-items:center;gap:10px">
-                        <input type="color" id="pmColor" value="#E63946"
-                            style="height:42px;width:60px;border:none;cursor:pointer;border-radius:8px"
-                            oninput="updateColorPreview()">
-                        <span id="pmColorHex"
-                            style="font-size:.82rem;color:var(--c-muted);font-family:monospace">#E63946</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label><i class="fa-solid fa-image"></i> โลโก้พรรค</label>
-                    <input id="pmLogo" placeholder="Google Drive ID" oninput="updateLogoPreview()">
-                    <p style="font-size:.72rem;color:var(--c-muted);margin-top:4px">ใส่ ID ของรูปจาก Google Drive</p>
-                </div>
-            </div>
-
-            <!-- Logo Preview -->
-            <div id="pmLogoPreviewArea"
-                style="display:none;text-align:center;margin:12px 0;padding:16px;background:var(--c-bg);border-radius:12px;border:1px dashed var(--c-border)">
-                <img id="pmLogoPreviewImg"
-                    style="width:80px;height:80px;border-radius:14px;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.12)">
-                <p style="font-size:.75rem;color:var(--c-muted);margin-top:8px">ตัวอย่างโลโก้</p>
-            </div>
-
-            <div class="modal-actions" style="margin-top:20px;gap:10px">
-                <button class="btn btn-outline" onclick="closeModal('partyModal')"
-                    style="border-radius:10px;padding:10px 20px">ยกเลิก</button>
-                <button class="btn btn-primary" id="pmSaveBtn" onclick="saveParty()"
-                    style="border-radius:10px;padding:10px 24px">
-                    <i class="fa-solid fa-save"></i> บันทึกพรรค
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- User Modal -->
-    <div class="modal-overlay" id="userModal">
-        <div class="modal">
-            <h3 id="userModalTitle">เพิ่มผู้ใช้</h3>
-            <div class="form-group"><label>ชื่อผู้ใช้ (username)</label><input id="umUsername" placeholder="username">
-            </div>
-            <div class="form-group"><label>ชื่อที่แสดง</label><input id="umDisplay" placeholder="ชื่อ-นามสกุล"></div>
-            <div class="form-group"><label>รหัสผ่าน</label><input type="password" id="umPassword" placeholder="••••••">
-            </div>
-            <div class="form-group"><label>บทบาท</label><select id="umRole">
-                    <option value="advisor">ครูที่ปรึกษา (advisor)</option>
-                    <option value="committee">กรรมการสภา (committee)</option>
-                </select></div>
-            <div class="modal-actions">
-                <button class="btn btn-outline" onclick="closeModal('userModal')">ยกเลิก</button>
-                <button class="btn btn-primary" id="umSaveBtn" onclick="saveUser()"><i class="fa-solid fa-save"></i>
-                    บันทึก</button>
-            </div>
-        </div>
-    </div>
 
     <script>
         // ===== ACCESS CONTROL =====
