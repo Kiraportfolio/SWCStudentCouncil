@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Activities | Sriwichaiwittaya School</title>
+
+    <link rel="icon" href="images/council.png" type="image/jpeg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/council.png" alt="logo" width="40" height="40">
+                <div class="logo-text">สภานักเรียน</div>
+            </a>
+
+            <!-- Hamburger Menu Button -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-links">
+                <div class="mobile-menu-header">
+                    <div class="mobile-menu-logo">
+                        <img src="images/Logo.png" alt="logo">
+                        Sriwichaiwittaya
+                    </div>
+                    <div class="mobile-menu-close" onclick="toggleMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+
+                <a href="index.html" class="nav-link">
+                    <i class="fa-solid fa-house"></i>
+                    <div class="nav-text"><span>หน้าแรก</span></div>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fa-solid fa-users"></i>
+                    <div class="nav-text"><span>รู้จักสภานักเรียน</span></div>
+                </a>
+                <div class="nav-item-dropdown">
+                    <a href="#" class="nav-link" onclick="event.preventDefault();">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <div class="nav-text"><span>เกี่ยวกับสภานักเรียน <i class="fa-solid fa-chevron-down"
+                                    style="font-size: 0.8em; margin-left: 4px;"></i></span></div>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="personnel.html" class="dropdown-item">บุคลากรที่สำคัญ</a>
+                        <a href="member.html" class="dropdown-item">2569 คณะกรรมการสภานักเรียน</a>
+                        <a href="directory.html" class="dropdown-item">ทำเนียบสภานักเรียน</a>
+                    </div>
+                </div>
+                <a href="policies.html" class="nav-link">
+                    <i class="fa-solid fa-book-open"></i>
+                    <div class="nav-text"><span>โครงการ</span></div>
+                </a>
+                <a href="news.html" class="nav-link">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <div class="nav-text"><span>ข่าวสาร</span></div>
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fa-solid fa-phone"></i>
+                    <div class="nav-text"><span>ติดต่อ</span></div>
+                </a>
+
+                <div class="nav-btn-wrapper">
+                    <button onclick="adminLogin();" class="btn btn-techno nav-link"
+                        style="background: none; border: none; cursor: pointer; width: 100%; text-align: left; padding: 10px 15px;">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <div class="nav-text"><span>จัดการระบบ</span></div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">ข่าวสารและกิจกรรม</h1>
+            <p class="page-subtitle">ติดตามความเคลื่อนไหว และเบื้องหลังการทำงานของพวกเรา</p>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <section class="section">
+        <div class="container">
+            <div class="highlight-box" style="margin-bottom: 50px;">
+                <div class="highlight-content text-center">
+                    <h2><i class="fa-solid fa-bullhorn"></i></h2>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="policy-grid">
+                <!-- News Item 1 -->
+                <div class="policy-card">
+                    <div class="candidate-img-wrapper" style="height: 200px; margin: -30px -30px 20px -30px;">
+                        <div class="candidate-placeholder">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                    </div>
+                    <span style="color: var(--color-primary-red); font-size: 0.8rem; font-weight: 700;"></span>
+                    <h3></h3>
+                    <p></p>
+                </div>
+
+                <!-- News Item 2 -->
+                <div class="policy-card">
+                    <div class="candidate-img-wrapper" style="height: 200px; margin: -30px -30px 20px -30px;">
+                        <div class="candidate-placeholder">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                    </div>
+                    <span style="color: var(--color-primary-red); font-size: 0.8rem; font-weight: 700;"></span>
+                    <h3></h3>
+                    <p></p>
+                </div>
+
+                <!-- News Item 3 -->
+                <div class="policy-card">
+                    <div class="candidate-img-wrapper" style="height: 200px; margin: -30px -30px 20px -30px;">
+                        <div class="candidate-placeholder">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                    </div>
+                    <span style="color: var(--color-primary-red); font-size: 0.8rem; font-weight: 700;"></span>
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>สภานักเรียน</h3>
+                    <p>โรงเรียนศรีวิชัยวิทยา <br>
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>เมนูลัด</h4>
+                    <ul>
+                        <li><a href="about.html">รู้จักสภานักเรียน</a></li>
+                        <li><a href="policies.html">นโยบายสภาฯ</a></li>
+                        <li><a href="candidates.html">คณะกรรมการ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>ติดต่อเรา</h4>
+                    <ul>
+                        <li><a href="https://www.facebook.com/swcstudentscouncil"><i class="fa-brands fa-facebook"></i>
+                                สภานักเรียน โรงเรียนศรีวิชัยวิทยา</a></li>
+                        <li><a href="https://www.instagram.com/sapaswc.68/"><i class="fa-brands fa-instagram"></i>
+                                คณะกรรมการสภานักเรียนโรงเรียนศรีวิชัยวิทยา</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>เว็บไซต์ทางการสภานักเรียนโรงเรียนศรีวิชัยวิทยา</p>
+                <p>&copy; 2026 Sriwichaiwittaya School. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container" id="quickContactFab">
+        <div class="fab-menu">
+            <h4><i class="fa-solid fa-bolt"></i> ติดต่อด่วน</h4>
+            <p>มีคำถามหรือข้อสงสัย? พิมพ์คุยกับ AI หรือส่งข้อความหาเราได้ทันที</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <button onclick="adminLogin();" class="btn btn-techno"
+                    style="border: none; cursor: pointer; width: 100%; text-align: left;">
+                    <i class="fa-solid fa-user-shield"></i> จัดการระบบ
+                </button>
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fa-solid fa-paper-plane"></i> ส่งข้อความถึงเรา
+                </a>
+                <a href="trash-report.html" class="btn btn-success">
+                    <i class="fa-solid fa-trash-can"></i> รายงานจุดขยะ
+                </a>
+            </div>
+        </div>
+        <button class="fab-button">
+            <i class="fa-solid fa-message"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

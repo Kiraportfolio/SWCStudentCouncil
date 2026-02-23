@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบนับคะแนนการเลือกตั้งสภานักเรียนประจำปี 2569</title>
+    <title>ระบบการลงคะแนนการเลือกตั้งสภานักเรียน</title>
+    <link rel="icon" type="image/png" href="images/council.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- API Client -->
-    <meta name="gas-api-url" content="https://script.google.com/macros/s/AKfycbxHIGrdTREFq3d-0Yq3Lz9xMrI9chG7AOL4zkEv0ss9MwgAFoAbJ8hlqJAZHdvaCARk/exec">
+    <meta name="gas-api-url"
+        content="https://script.google.com/macros/s/AKfycbw6zY6L7Ki0eu8f8c0VMPINwI0MZHsEvgQHf3_DcPd1eI2xTvD0HNc05M1V-qf5kCvX/exec">
     <script src="api.js?v=1.0.1"></script>
 
     <!-- CSS (Lite Version) -->
@@ -543,8 +545,20 @@
                 </div>
                 <div class="system-title">
                     <h1>ระบบนับคะแนนการเลือกตั้งสภานักเรียน</h1>
-                    <span>ประจำปีการศึกษา 2569 | โรงเรียนศรีวิชัยวิทยา</span>
+                    <span id="systemSubtitle">ประจำปีการศึกษา 2569 | โรงเรียนศรีวิชัยวิทยา</span>
                 </div>
+            </div>
+
+            <!-- Header Actions (Desktop) -->
+            <div class="header-actions" style="display: flex; gap: 8px;">
+                <a href="../index.html" class="btn btn-secondary btn-sm"
+                    style="border-width: 1px; font-size: 0.8rem; padding: 6px 12px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; gap: 6px; background: rgba(42, 157, 143, 0.1); color: var(--color-primary-green); border-color: var(--color-primary-green);">
+                    <i class="fa-solid fa-house"></i> ไปหน้าเว็บหลัก
+                </a>
+                <button class="btn btn-secondary btn-sm" onclick="showAdminLogin('advisor')"
+                    style="border-width: 1px; font-size: 0.8rem; padding: 6px 12px; border-radius: 8px;">
+                    <i class="fa-solid fa-user-shield"></i> จัดการระบบ
+                </button>
             </div>
 
             <!-- Mobile Hamburger Button -->
@@ -559,7 +573,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
             <h3>เมนูระบบ</h3>
-            <p>ระบบนับคะแนนสภานักเรียน</p>
+            <p id="mobileMenuSubtitle">ระบบนับคะแนนสภานักเรียน</p>
         </div>
 
         <a href="#" onclick="navigateTo('index'); toggleMobileMenu(); return false;" class="mobile-nav-link">
@@ -569,6 +583,16 @@
         <a href="#" onclick="navigateTo('ranking'); toggleMobileMenu(); return false;" class="mobile-nav-link">
             <i class="fa-solid fa-tv"></i>
             ผลคะแนนสด
+        </a>
+        <a href="../index.html" class="mobile-nav-link"
+            style="border-color: var(--color-primary-green); color: var(--color-primary-green); background: rgba(42, 157, 143, 0.05);">
+            <i class="fa-solid fa-house"></i>
+            ไปหน้าเว็บหลัก
+        </a>
+        <a href="#" onclick="showAdminLogin('advisor'); toggleMobileMenu(); return false;" class="mobile-nav-link"
+            style="margin-top: auto; border-color: var(--color-primary-yellow); color: var(--color-primary-black); background: rgba(233, 196, 106, 0.1);">
+            <i class="fa-solid fa-user-shield"></i>
+            จัดการระบบ (Admin)
         </a>
     </div>
 
@@ -603,14 +627,6 @@
                     <div>
                         <h3>กากบาทลงคะแนน</h3>
                         <p>สำหรับกรรมการกดบันทึกบัตรเลือกตั้งแบบกากบาท</p>
-                    </div>
-                </button>
-
-                <button class="role-btn" onclick="showAdminLogin('advisor')">
-                    <i class="fa-solid fa-user-shield"></i>
-                    <div>
-                        <h3>ผู้ดูแลระบบ / ครูที่ปรึกษา</h3>
-                        <p>สำหรับครูที่ปรึกษาสภานักเรียนและผู้ดูแลระบบ</p>
                     </div>
                 </button>
             </div>
@@ -656,10 +672,10 @@
     <footer class="footer">
         <div class="footer-disclaimer" id="footerText">
             <i class="fa-solid fa-check-to-slot"></i>
-            ระบบนี้ใช้เพื่อการลงคะแนนเลือกตั้งสภานักเรียน
+            เว็บไซต์นี้เป็นเว็บไซต์สำหรับการลงคะแนนเสียงในการเลือกตั้งสภานักเรียน
         </div>
         <div class="footer-dev" id="footerDev">
-            พัฒนาโดย นายธีรเดช เดชสูงเนิน
+            พัฒนาและดูแลระบบโดย สภานักเรียนโรงเรียนศรีวิชัยวิทยา
         </div>
     </footer>
 
@@ -670,6 +686,13 @@
                 apiGet('getElectionConfig').then(function (cfg) {
                     if (!cfg) return;
                     document.title = 'ระบบนับคะแนน' + (cfg.electionName || '') + ' ปี ' + (cfg.academicYear || '');
+
+                    var subtitle = document.getElementById('systemSubtitle');
+                    if (subtitle) subtitle.textContent = 'ประจำปีการศึกษา ' + (cfg.academicYear || '') + ' | ' + (cfg.schoolName || '');
+
+                    var mobileSubtitle = document.getElementById('mobileMenuSubtitle');
+                    if (mobileSubtitle) mobileSubtitle.textContent = 'ระบบนับคะแนน' + (cfg.electionName || '');
+
                     var ft = document.getElementById('footerText');
                     if (ft) ft.innerHTML = '<i class="fa-solid fa-check-to-slot"></i> ระบบนี้ใช้เพื่อ' + (cfg.electionName || '') + ' ' + (cfg.schoolName || '');
                     var fd = document.getElementById('footerDev');

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>นับคะแนน | ระบบนับคะแนนการเลือกตั้งสภานักเรียน</title>
 
+    <link rel="icon" type="image/png" href="images/council.png">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- API Client -->
-    <meta name="gas-api-url" content="https://script.google.com/macros/s/AKfycbxHIGrdTREFq3d-0Yq3Lz9xMrI9chG7AOL4zkEv0ss9MwgAFoAbJ8hlqJAZHdvaCARk/exec">
+    <meta name="gas-api-url"
+        content="https://script.google.com/macros/s/AKfycbw6zY6L7Ki0eu8f8c0VMPINwI0MZHsEvgQHf3_DcPd1eI2xTvD0HNc05M1V-qf5kCvX/exec">
     <script src="api.js?v=1.0.1"></script>
 
     <!-- CSS -->
@@ -1029,11 +1031,15 @@
     </main>
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-disclaimer"><i
-                class="fa-solid fa-check-to-slot"></i>ระบบนี้ใช้เพื่อการลงคะแนนเลือกตั้งสภานักเรียน
-            โรงเรียนศรีวิชัยวิทยา</div>
-        <div class="footer-dev">พัฒนาโดย นายธีรเดช เดชสูงเนิน</div>
+        <div class="footer-disclaimer" id="footerText">
+            <i class="fa-solid fa-check-to-slot"></i>
+            เว็บไซต์นี้เป็นเว็บไซต์สำหรับการลงคะแนนเสียงในการเลือกตั้งสภานักเรียน
+        </div>
+        <div class="footer-dev" id="footerDev">
+            พัฒนาและดูแลระบบโดย สภานักเรียนโรงเรียนศรีวิชัยวิทยา
+        </div>
     </footer>
+
     <script>
         let voteData = {};
         let partyConfig = {};
